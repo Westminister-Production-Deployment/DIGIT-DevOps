@@ -29,6 +29,7 @@ healthChecks:
 appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx256m -Xms256m"
+memory_limits: 512Mi
 java-args: "-Dspring.profiles.active=monitoring"
 egov.idgen.fsm.applicationNum.format: "[CITY.CODE]-FSM-[cy:yyyy-MM-dd]-[SEQ_EGOV_FSM]"
 
