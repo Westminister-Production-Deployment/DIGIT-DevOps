@@ -1,4 +1,4 @@
-namespace : egov
+namespace : sanitation
 # Common Labels
 labels:
   app: "fsm"
