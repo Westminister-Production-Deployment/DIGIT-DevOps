@@ -24,7 +24,7 @@ replicas: "1"
 appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx192m -Xms192m"
-memory_limits: 512Mi
+memory_limits: 384Mi
 persistence-through-kafka: "yes"
 
 # Additional Container Envs
