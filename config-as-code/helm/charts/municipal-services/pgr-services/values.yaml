@@ -35,6 +35,7 @@ reopen-complaint-enabled: "true"
 comment-by-employee-notif-enabled: "false"
 notification-allowed-status: "open,assigned,rejected,resolved"
 heap: "-Xmx192m -Xms192m"
+memory_limits: 384Mi
 java-args: "-Dspring.profiles.active=monitoring"
 
 # Additional Container Envs
