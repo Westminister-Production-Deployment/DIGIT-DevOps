@@ -29,7 +29,7 @@ tracing-enabled: true
 is-bucket-fixed: "true"
 fixed-bucketname: "egov-rainmaker"
 heap: "-Xmx192m -Xms192m"
-memory_limits: 512Mi
+memory_limits: 384Mi
 file-storage-mount-path: "/filestore"
 is-nfs-enabled: false
 is-s3-enabled: true
