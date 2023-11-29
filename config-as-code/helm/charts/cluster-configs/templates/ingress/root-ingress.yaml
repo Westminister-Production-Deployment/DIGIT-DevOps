@@ -10,6 +10,7 @@ metadata:
     #certmanager.k8s.io/cluster-issuer: {{ index . "cert-issuer" }}
     cert-manager.io/cluster-issuer: {{ index . "cert-issuer" }}
   {{- end }}  
+    kubernetes.io/ingress.class: {{ index . "ingressClass" }}
   name: {{ .name }}
   namespace: {{ .namespace }}
 spec:
