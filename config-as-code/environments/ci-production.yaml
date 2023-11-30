@@ -1,0 +1,87 @@
+global:
+  domain: "jenkins.westminister.tech" ## Add your Domain Name Eg: site.mydomain.com
+  setup: fullsetup
+  
+cluster-configs:
+  namespaces:
+    create: true
+    values: [ jenkins, cert-manager ]
+  root-ingress:
+    namespace: jenkins
+    serviceName: jenkins
+    servicePort: 8080
+    appRoot: ""
+    cert-issuer: "letsencrypt-prod"
+    ingressClass: nginx
+
+jenkins:
+  persistence:
+    enabled: true
+    aws:
+      - volumeId: "vol-04f3f83ab1d4c0db7" # Add volume id for jenkins-home
+        zone: "me-central-1a"  # Add respective availability_zones
+
+  oauth:
+    enabled: true
+    acl:
+      admin:
+        - Ibrahim-Westminister-Tech # Add github team. Members of this team gets admin access on jenkins
+        - Westminister-Production-Deployment-Jenkins-Team 
+      user:                                 # Add github team. Members of this team gets login access on jenkins
+        - amitongraph2023 
+        #        - egovernments*micro-service-dev
+        #        - egovernments*micro-service-qa
+        #        - egovernments*micro-service-uat
+       
+
+  jobBuilder:    # Add jobBuilder repo's, add repo's ssh link
+    repos: >-
+      'git@github.com:Westminister-Production-Deployment/DIGIT-OSS.git'
+  deploymentJobs:  # Setup deploymentJobs ACL 
+    #    - name: dev    # deployment job name
+    #      acl: [egovernments*micro-service-dev] # GitHub team name, Members of the team get access to deployment job
+    #    - name: qa
+    #      acl: [egovernments*micro-service-qa] 
+    - name: egov-production
+      acl: [Ibrahim-Westminister-Tech] 
+    
+       
+  master:
+    ingress:
+      enabled: true
+    resources:
+      limits:
+        cpu: "2000m"
+        memory: "4096Mi"
+    javaOpts: "-Xms2560M -Xmx2560M -Duser.timezone=Asia/Calcutta"
+    jenkinsAdminEmail: "Jenkins"
+    jenkinsUrl: "https://jenkins.westminister.tech"
+
+nginx-ingress:
+  replicas: 1
+  default-backend-service: "jenkins/jenkins"
+  namespace: jenkins
+  cert-issuer: "letsencrypt-staging"
+  ssl-protocols: "TLSv1.2 TLSv1.3"
+  ssl-ciphers: "EECDH+CHACHA20:EECDH+AES"
+  ssl-ecdh-curve: "X25519:prime256v1:secp521r1:secp384r1"
+  controller:
+    image:
+      repository: egovio/nginx-ingress-controller
+      tag: "0.26.1"
+
+cert-manager:
+  namespace: jenkins
+  clusterIssuer:
+    stage:
+      acme:
+        email: "ibrahim@westminister.tech"     # Add mail id
+
+cluster-autoscaler:
+  namespace: jenkins
+  cloudProvider: aws  
+  awsRegion: me-central-1
+  autoDiscovery:
+    clusterName: new-digit-egov-production-cluster # Add cluster name
+    tags:
+    - kubernetes.io/cluster/new-digit-egov-production-cluster # Add cluster name
