@@ -21,6 +21,7 @@ healthChecks:
 appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx256m -Xms256m"
+service-map: {"FSM":{"searchPath":"http://fsm.egov:8080/fsm/v1/_search","dataRoot":"fsm","applNosParam":"applicationNos","businessIdProperty":"applicationNo","applsStatusParam":"applicationStatus"},"FSM_VEHICLE_TRIP":{"searchPath":"http://vehicle.egov:8080/vehicle/trip/v1/_search","dataRoot":"vehicleTrip","applNosParam":"applicationNos","businessIdProperty":"applicationNo","applsStatusParam":"applicationStatus"},"PT.CREATE,PT.MUTATION,PT.UPDATE":{"searchPath":"http://property-services.egov:8080/property/_search","dataRoot":"Properties","applNosParam":"acknowldgementNumber","businessIdProperty":"acknowldgementNumber","applsStatusParam":"status"},"NewTL,EDITRENEWAL,DIRECTRENEWAL":{"searchPath":"http://tl-services:8080/v1/_search","dataRoot":"Licenses","applNosParam":"applicationNumber","businessIdProperty":"applicationNumber","applsStatusParam":"status"}}
 java-args: "-Dspring.profiles.active=monitoring"
 
 # Additional Container Envs
