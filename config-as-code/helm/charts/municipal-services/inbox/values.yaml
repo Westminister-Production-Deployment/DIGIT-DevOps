@@ -21,6 +21,7 @@ healthChecks:
 appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx256m -Xms256m"
+memory_limits: 384Mi
 service-map: '{"FSM":{"searchPath":"http://localhost:9098/fsm/v1/_search","dataRoot":"fsm","applNosParam":"applicationNos","businessIdProperty":"applicationNo","applsStatusParam":"applicationStatus"},"FSM_VEHICLE_TRIP":{"searchPath":"http://localhost:8061/vehicle/trip/v1/_search","dataRoot":"vehicleTrip","applNosParam":"applicationNos","businessIdProperty":"applicationNo","applsStatusParam":"applicationStatus"},"PT.CREATE,PT.MUTATION,PT.UPDATE":{"searchPath":"http://localhost:8088/property-services/property/_search","dataRoot":"Properties","applNosParam":"acknowldgementNumber","businessIdProperty":"acknowldgementNumber","applsStatusParam":"status"},"NewTL,EDITRENEWAL,DIRECTRENEWAL":{"searchPath":"http://localhost:8088/tl-services/v1/_search","dataRoot":"Licenses","applNosParam":"applicationNumber","businessIdProperty":"applicationNumber","applsStatusParam":"status"}}'
 java-args: "-Dspring.profiles.active=monitoring"
 
