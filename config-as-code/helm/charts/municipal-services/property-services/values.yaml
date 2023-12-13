@@ -148,3 +148,11 @@ env: |
   - name: TRACER_OPENTRACING_ENABLED
     value: "true" 
   {{- end }}
+  - name: IS_WORKFLOW_ENABLED
+    value: {{ index .Values "is-workflow-enabled" | quote }}
+  - name: PROPERTY_CREATE_WORKFLOW_NAME
+    value: {{ index .Values "property-create-workflow-name" | quote }}
+  - name: PROPERTY_LEGACY_ENTRY_WORKFLOW_NAME
+    value: {{ index .Values "property-legacy-entry-workflow-name" | quote }}
+  - name: PROPERTY_UPDATE_WORKFLOW_NAME
+    value: {{ index .Values "property-update-workflow-name" | quote }}
