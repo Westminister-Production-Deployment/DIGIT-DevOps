@@ -33,6 +33,10 @@ java-args: "-Dspring.profiles.active=monitoring"
 notification-sms-enabled: ""
 employee-allowed-search-params: ""
 citizen-allowed-search-params: ""
+is-workflow-enabled: "true"
+property-create-workflow-name: "PT.CREATE"
+property-legacy-entry-workflow-name: "PT.LEGACY"
+property-update-workflow-name: "PT.UPDATE"
 
 # Additional Container Envs
 env: |
