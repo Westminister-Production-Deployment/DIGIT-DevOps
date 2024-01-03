@@ -206,7 +206,7 @@ egov-notification-sms:
 egov-user:
   heap: "-Xmx256m -Xms256m"
   memory_limits: 512Mi
-  otp-validation: "true"
+  otp-validation: "false"
   citizen-otp-enabled: "false"
   employee-otp-enabled: "false"
   access-token-validity: 10080
