@@ -8,9 +8,6 @@ ingress:
   enabled: true
   zuul: true
   context: "egov-mdms-service"
-  annotations:
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000,https://b10e-2402-e280-230d-553-66ce-c1c1-2efa-b56f.ngrok-free.app/"
 
 # Init Containers Configs
 initContainers:
