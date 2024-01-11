@@ -466,7 +466,6 @@ egov-hrms:
   java-args: -Dspring.profiles.active=monitoring
   heap: "-Xmx192m -Xms192m"
   employee-applink: "https://egov-demo.egovernments.org/employee/user/login"
-  default-password: "egov@123"
 
 
 egov-weekly-impact-notifier:
