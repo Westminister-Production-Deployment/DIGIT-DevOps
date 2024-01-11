@@ -42,6 +42,7 @@ cluster-configs:
                 tracer-errors-provideexceptionindetails: "true"
                 egov-bnd-freedownload-tenants: "pg.testing"
                 egov-bnd-live-citizen-tenants: "pg.testing"
+                egov-hrms-default-password: "Egov@1234"
 
         egov-service-host:
             namespace: [ egov, monitoring ]
